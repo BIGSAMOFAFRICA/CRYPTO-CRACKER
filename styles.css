@@ -1,0 +1,12 @@
+button:hover {
+    background-color: #6366f1; 
+  }
+  html.dark {
+    background-color: #1a202c;
+    color: #f7fafc;
+  }
+  
+  button.favorite-btn:hover {
+    transform: scale(1.05);
+  }
+  

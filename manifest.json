@@ -1,0 +1,16 @@
+{
+    "name": "Crypto Price Tracker",
+    "short_name": "CryptoTracker",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#111827",
+    "theme_color": "#4F46E5",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  
