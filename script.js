@@ -4,7 +4,7 @@ const searchBtn = document.getElementById('search-btn');
 const cryptoCards = document.getElementById('crypto-cards');
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-// Fetch Crypto Data
+
 async function fetchCryptos(query = '') {
   const response = await fetch(`${API_URL}coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false`);
   const data = await response.json();
@@ -12,7 +12,7 @@ async function fetchCryptos(query = '') {
   displayCryptos(filteredData);
 }
 
-// Display Crypto Cards
+
 function displayCryptos(cryptos) {
   cryptoCards.innerHTML = '';
   cryptos.forEach((crypto) => {
@@ -32,31 +32,31 @@ function displayCryptos(cryptos) {
   });
 }
 
-// Add to Favorites
+
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('favorite-btn')) {
     const id = e.target.dataset.id;
-    const cryptoName = e.target.closest('.bg-gray-800').querySelector('h2').textContent.trim();  // Get the crypto name
+    const cryptoName = e.target.closest('.bg-gray-800').querySelector('h2').textContent.trim(); 
     
     if (!favorites.includes(id)) {
       favorites.push(id);
       localStorage.setItem('favorites', JSON.stringify(favorites));
-      alert(`${cryptoName} has been added to Favorites!`);  // Show the name in the alert
+      alert(`${cryptoName} has been added to Favorites!`);  
     }
   }
 });
 
-// Search Functionality
+
 searchBtn.addEventListener('click', () => {
   const query = searchInput.value;
   fetchCryptos(query);
 });
 
-// View Crypto Details
+
 function viewDetails(id) {
-  // Here, you can either open a modal or redirect to a detailed page
+ 
   window.location.href = `details.html?id=${id}`;
 }
 
-// Initialize
+
 fetchCryptos();
